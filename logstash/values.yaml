@@ -179,7 +179,8 @@ httpPort: 9600
 
 # Custom ports to add to logstash
 extraPorts:
-  []
+  - name: tcpport
+    containerPort: 9500
   # - name: beats
   #   containerPort: 5001
 
