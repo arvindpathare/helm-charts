@@ -12,9 +12,13 @@ metadata:
 {{ toYaml .Values.labels | indent 4 }}
 {{- end }}
 spec:
-  clusterIP: None
-  selector:
-    app: "{{ template "logstash.fullname" . }}"
-  ports:
-    - name: http
-      port: {{ .Values.httpPort }}
+ type: NodePort
+ selector:
+ app: “{{ template “logstash.fullname” . }}”
+ ports:
+ — name: http
+ port: {{ .Values.httpPort }}
+ nodePort: 31123
+ — name: tcp
+ port: 9500 
+ nodePort: 30123
