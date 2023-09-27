@@ -120,10 +120,11 @@ updateStrategy:
   type: "Recreate"
 
 service:
-  type: ClusterIP
+  enabled: true
+  type: NodePort
   loadBalancerIP: ""
   port: 5601
-  nodePort: ""
+  nodePort: "30235"
   labels: {}
   annotations: {}
   # cloud.google.com/load-balancer-type: "Internal"
