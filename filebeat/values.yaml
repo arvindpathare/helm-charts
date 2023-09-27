@@ -45,6 +45,9 @@ daemonset:
             matchers:
             - logs_path:
                 logs_path: "/var/log/containers/"
+      logging.level: error
+       output.logstash:
+         hosts: ["logstash-logstash-0.logstash-logstash-headless.monitoring.svc.cluster.local:5044"]           
 
       output.elasticsearch:
         host: '${NODE_NAME}'
